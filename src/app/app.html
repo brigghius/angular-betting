@@ -9,16 +9,14 @@
   <mat-sidenav #sidenav class="custom-sidenav" mode="side" opened>
     <mat-nav-list>
       <mat-list-item>
-        <span class="tastoHome">
-          Overview
-        </span>
+        <span> Overview </span>
       </mat-list-item>
     </mat-nav-list>
     @for (sports of sports(); track sports) {
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          <span> {{sports.nomeSport}}</span>
+          <span> {{sports.nomeSport | capitalize  }}</span>
         </mat-panel-title>
       </mat-expansion-panel-header>
       <div>
@@ -30,5 +28,5 @@
     }
   </mat-sidenav>
 
-  <mat-sidenav-content>Main content</mat-sidenav-content>
+  <mat-sidenav-content><router-outlet></router-outlet></mat-sidenav-content>
 </mat-sidenav-container>

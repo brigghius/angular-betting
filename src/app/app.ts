@@ -6,10 +6,11 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { EventsService } from './services/events/events-service';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatListModule} from '@angular/material/list';
+import { CapitalizePipe } from './pipe/capitalize-pipe';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatToolbarModule, MatIconModule, MatExpansionModule, MatListModule, MatSidenavModule],
+  imports: [RouterOutlet, MatToolbarModule, MatIconModule, MatExpansionModule, MatListModule, MatSidenavModule, CapitalizePipe ],
   templateUrl: './app.html',
   styleUrl: './app.less'
 })
