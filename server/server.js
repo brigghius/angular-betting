@@ -55,6 +55,43 @@ router.get('/events', (ctx) => {
   ctx.body = events;
 }); 
 
+/* // 🔹 GET elenco sport (senza duplicati)
+router.get('/sports', async (ctx) => {
+  try {
+    const rawData = await fs.promises.readFile(dataPath, 'utf-8');
+    const events = JSON.parse(rawData);
+
+    // estrai sport unici
+    const sports = [...new Set(events.map(e => e.sport))];
+
+    ctx.body = sports;
+  } catch (err) {
+    ctx.status = 500;
+    ctx.body = { error: err.message };
+  }
+}); */
+
+// Get per ottenere sport e categorie
+router.get('/sports', async (ctx) => {
+  const rawData = await fs.promises.readFile(dataPath, 'utf-8');
+    const events = JSON.parse(rawData);
+  const sportMap = {};
+
+  events.forEach(event => {
+    if (!sportMap[event.sport]) {
+      sportMap[event.sport] = new Set();
+    }
+    sportMap[event.sport].add(event.categoria);
+  });
+
+  const result = Object.keys(sportMap).map(sport => ({
+    nomeSport: sport,
+    categoria: Array.from(sportMap[sport])
+  }));
+
+  ctx.body = result;
+});
+
 
 app.use(router.routes());
 app.use(router.allowedMethods());
