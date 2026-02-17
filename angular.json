@@ -72,6 +72,9 @@
               "buildTarget": "angular-betting:build:development"
             }
           },
+          "options":{
+            "proxyConfig": "proxy.conf.json"
+          },
           "defaultConfiguration": "development"
         },
         "test": {
