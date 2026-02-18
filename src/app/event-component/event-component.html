@@ -1,0 +1,32 @@
+<div class="center-wrap">
+	<mat-card class="center-card">
+		<mat-card-header class="centered-header">
+			<mat-card-title><h2>{{ evento()?.name }}</h2></mat-card-title>
+		</mat-card-header>
+		<mat-card-content class="card-content-center">
+            <div><strong>id:</strong> &nbsp; {{ evento()?.id }}</div>
+			<div><strong>Sport:</strong> &nbsp; {{ evento()?.sport }}</div>
+			<div><strong>Categoria:</strong> &nbsp; {{ evento()?.categoria }}</div>
+            
+            <h2>Quote</h2>
+            <div class="quotes-container">
+
+                    <mat-card class="cardQuote">
+                        <div class="fraction">
+                            <span class="num">1</span>
+                            <span class="den">{{ evento()?.quote?.unoVince }}</span>
+                        </div>
+                    </mat-card>
+                    <mat-card class="cardQuote"><div class="fraction">
+                            <span class="num">x</span>
+                            <span class="den">{{ evento()?.quote?.pareggio }}</span>
+                        </div></mat-card>
+                    <mat-card class="cardQuote"><div class="fraction">
+                            <span class="num">2</span>
+                            <span class="den">{{ evento()?.quote?.dueVince }}</span>
+                        </div></mat-card>
+                </div>
+		</mat-card-content>
+	</mat-card>
+</div>
+

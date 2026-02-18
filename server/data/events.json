@@ -5,9 +5,9 @@
     "sport": "football",
     "categoria": "La Liga",
     "quote": {
-      "1": 2.45,
-      "x": 3.10,
-      "2": 2.75
+      "unoVince": 2.45,
+      "pareggio": 3.10,
+      "dueVince": 2.75
     }
   },
   {
@@ -16,9 +16,9 @@
     "sport": "football",
     "categoria": "Premier League",
     "quote": {
-      "1": 1.95,
-      "x": 3.60,
-      "2": 3.80
+      "unoVince": 1.95,
+      "pareggio": 3.60,
+      "dueVince": 3.80
     }
   },
   {
@@ -27,9 +27,9 @@
     "sport": "football",
     "categoria": "Serie A",
     "quote": {
-      "1": 2.80,
-      "x": 3.00,
-      "2": 2.50
+      "unoVince": 2.80,
+      "pareggio": 3.00,
+      "dueVince": 2.50
     }
   },
   {
@@ -38,9 +38,9 @@
     "sport": "basketball",
     "categoria": "NBA",
     "quote": {
-      "1": 1.70,
-      "x": 12.00,
-      "2": 2.10
+      "unoVince": 1.70,
+      "pareggio": 12.00,
+      "dueVince": 2.10
     }
   },
   {
@@ -49,9 +49,9 @@
     "sport": "basketball",
     "categoria": "EuroLeague",
     "quote": {
-      "1": 1.85,
-      "x": 15.50,
-      "2": 1.95
+      "unoVince": 1.85,
+      "pareggio": 15.50,
+      "dueVince": 1.95
     }
   },
   {
@@ -60,9 +60,9 @@
     "sport": "basketball",
     "categoria": "Lega A",
     "quote": {
-      "1": 2.05,
-      "x": 14.20,
-      "2": 1.75
+      "unoVince": 2.05,
+      "pareggio": 14.20,
+      "dueVince": 1.75
     }
   },
   {
@@ -71,9 +71,9 @@
     "sport": "tennis",
     "categoria": "ATP",
     "quote": {
-      "1": 1.60,
-      "x": 0,
-      "2": 2.30
+      "unoVince": 1.60,
+      "pareggio": 0,
+      "dueVince": 2.30
     }
   },
   {
@@ -82,9 +82,9 @@
     "sport": "tennis",
     "categoria": "WTA",
     "quote": {
-      "1": 1.90,
-      "x": 0,
-      "2": 1.95
+      "unoVince": 1.90,
+      "pareggio": 0,
+      "dueVince": 1.95
     }
   },
   {
@@ -93,9 +93,9 @@
     "sport": "tennis",
     "categoria": "Australian Open",
     "quote": {
-      "1": 2.10,
-      "x": 0,
-      "2": 1.70
+      "unoVince": 2.10,
+      "pareggio": 0,
+      "dueVince": 1.70
     }
   },
   {
@@ -104,9 +104,9 @@
     "sport": "cricket",
     "categoria": "ICC World Cup",
     "quote": {
-      "1": 1.75,
-      "x": 4.50,
-      "2": 2.20
+      "unoVince": 1.75,
+      "pareggio": 4.50,
+      "dueVince": 2.20
     }
   },
   {
@@ -115,9 +115,9 @@
     "sport": "cricket",
     "categoria": "T20 Blast",
     "quote": {
-      "1": 2.30,
-      "x": 5.00,
-      "2": 1.65
+      "unoVince": 2.30,
+      "pareggio": 5.00,
+      "dueVince": 1.65
     }
   },
   {
@@ -126,9 +126,20 @@
     "sport": "golf",
     "categoria": "PGA Tour",
     "quote": {
-      "1": 2.75,
-      "x": 10.00,
-      "2": 2.40
+      "unoVince": 2.75,
+      "pareggio": 10.00,
+      "dueVince": 2.40
+    }
+  },
+  {
+    "id": 13,
+    "name": "Lecce vs Sassuolo",
+    "sport": "football",
+    "categoria": "Serie A",
+    "quote": {
+      "unoVince": 5.80,
+      "pareggio": 2.00,
+      "dueVince": 3.50
     }
   }
 ]
