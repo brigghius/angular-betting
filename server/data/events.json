@@ -130,5 +130,16 @@
       "pareggio": 10.00,
       "dueVince": 2.40
     }
+  },
+  {
+    "id": 13,
+    "name": "Lecce vs Sassuolo",
+    "sport": "football",
+    "categoria": "Serie A",
+    "quote": {
+      "unoVince": 5.80,
+      "pareggio": 2.00,
+      "dueVince": 3.50
+    }
   }
 ]

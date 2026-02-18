@@ -18,14 +18,31 @@ router.get('/test', ctx => {
   ctx.body = { message: 'Connessione Koa ok' };
 });
 
-// 🔹 GET tutti gli eventi
+// GET tutti gli eventi (con filtro opzionale per sport)
 router.get('/events', (ctx) => {
-  const rawData = fs.readFileSync(dataPath);
+  const rawData = fs.readFileSync(dataPath, 'utf-8');
   const events = JSON.parse(rawData);
-  ctx.body = events;
+
+  const sport = ctx.query && ctx.query.sport;
+  const categoria = ctx.query && ctx.query.categoria;
+  if (!sport && !categoria) {
+    ctx.body = events;
+    return;
+  }
+  else if (sport) {
+    const sportLower = String(sport).toLowerCase();
+    const filtered = events.filter(e => e.sport && e.sport.toLowerCase() === sportLower);
+    ctx.body = filtered;
+  }
+  else {
+    const categoriaLower = String(categoria).toLowerCase();
+    const filtered = events.filter(e => e.categoria && e.categoria.toLowerCase() === categoriaLower);
+    ctx.body = filtered;
+  }
+
 });
 
-// 🔹 GET evento per id
+// GET evento per id
 router.get('/events/:id', (ctx) => {
   const rawData = fs.readFileSync(dataPath);
   const events = JSON.parse(rawData);
@@ -41,40 +58,12 @@ router.get('/events/:id', (ctx) => {
   ctx.body = event;
 });
 
-// 🔹 GET eventi con filtro per sport
-router.get('/events', (ctx) => {
-  const rawData =  fs.readFile(dataPath);
-  let events = JSON.parse(rawData);
 
-  const { sport } = ctx.query;
-  console.log(sport);
-  events = events.filter(
-      e => e.sport.toLowerCase() === sport.toLowerCase()
-    );
-  
-  ctx.body = events;
-}); 
-
-/* // 🔹 GET elenco sport (senza duplicati)
-router.get('/sports', async (ctx) => {
-  try {
-    const rawData = await fs.promises.readFile(dataPath, 'utf-8');
-    const events = JSON.parse(rawData);
-
-    // estrai sport unici
-    const sports = [...new Set(events.map(e => e.sport))];
-
-    ctx.body = sports;
-  } catch (err) {
-    ctx.status = 500;
-    ctx.body = { error: err.message };
-  }
-}); */
 
 // Get per ottenere sport e categorie
 router.get('/sports', async (ctx) => {
   const rawData = await fs.promises.readFile(dataPath, 'utf-8');
-    const events = JSON.parse(rawData);
+  const events = JSON.parse(rawData);
   const sportMap = {};
 
   events.forEach(event => {

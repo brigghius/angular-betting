@@ -8,20 +8,21 @@
 <mat-sidenav-container class="custom-container" fullscreens>
   <mat-sidenav #sidenav class="custom-sidenav" mode="side" opened>
     <mat-nav-list>
-      <mat-list-item>
-        <span> Overview </span>
+      <mat-list-item  [ngClass]="{ 'selectedSport': 'overview' == commonService.sport()}" (click)="caricaSportCategoriaSpecifico('overview', '')">
+        <span > Overview </span>
       </mat-list-item>
     </mat-nav-list>
     @for (sports of sports(); track sports) {
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
+    <mat-expansion-panel [expanded]="sports.nomeSport === currentOpenedItemId" 
+          (opened)="handleOpened(sports.nomeSport)">
+      <mat-expansion-panel-header [ngClass]="{ 'selectedSport': sports.nomeSport == commonService.sport()}" (click)="caricaSportCategoriaSpecifico(sports.nomeSport, '')">
         <mat-panel-title>
-          <span> {{sports.nomeSport | capitalize  }}</span>
+          <span  > {{sports.nomeSport | capitalize  }}</span>
         </mat-panel-title>
       </mat-expansion-panel-header>
       <div>
         @for (categ of sports.categoria; track categ) {
-        <a mat-list-item>{{ categ }}</a>
+        <a [ngClass]="{ 'selectedCategoria':  categ == commonService.categoria()}" (click)="caricaSportCategoriaSpecifico(sports.nomeSport, categ)" mat-list-item>{{ categ }}</a>
         }
       </div>
     </mat-expansion-panel>
