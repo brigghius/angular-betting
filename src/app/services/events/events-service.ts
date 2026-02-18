@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { EventModel } from '../../models/event-model';
 
 @Injectable({
   providedIn: 'root',
@@ -8,8 +9,8 @@ import { Observable } from 'rxjs';
 export class EventsService {
   constructor(private http: HttpClient) {}
 
-  getAllEvents() {
-    return this.http.get('http://localhost:3000/api/events');
+  getAllEvents(): Observable<EventModel[]>  {
+    return this.http.get<EventModel[]>('http://localhost:3000/api/events');
   }
 
   getAllSports() {

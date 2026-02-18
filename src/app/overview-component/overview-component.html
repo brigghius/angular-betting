@@ -1,1 +1,39 @@
-<p>overview works!</p>
+<div *ngIf="loading | async">Loading...</div>
+
+<div>
+    <div class="grid-container">
+        @for (event of listaEventi | async; track event.id) {
+        <mat-card appearance="outlined">
+            <mat-card-header class="title">
+                <mat-card-title>{{ event.name }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div>Sport: {{ event.sport }}</div>
+                <div>Categoria: {{event.categoria}}</div>
+                <div>
+                    <div class="grid-container">
+                        <mat-card></mat-card>
+                    </div>
+                </div>
+                <div style="display: flex;">
+
+                    <mat-card class="cardQuote">
+                        <div class="fraction">
+                            <span class="num">1</span>
+                            <span class="den">{{event.quote.unoVince}}</span>
+                        </div>
+                    </mat-card>
+                    <mat-card class="cardQuote"><div class="fraction">
+                            <span class="num">x</span>
+                            <span class="den">{{event.quote.pareggio}}</span>
+                        </div></mat-card>
+                    <mat-card class="cardQuote"><div class="fraction">
+                            <span class="num">2</span>
+                            <span class="den">{{event.quote.dueVince}}</span>
+                        </div></mat-card>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        }
+    </div>
+</div>
