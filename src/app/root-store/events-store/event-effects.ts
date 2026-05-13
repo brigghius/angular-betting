@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { switchMap, catchError, map, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { loadEvents, loadEventsByCategoria, loadEventsByCategoriaError, loadEventsByCategoriaSuccess, loadEventsBySport, loadEventsBySportError, loadEventsBySportSuccess, loadEventsError, loadEventsSuccess } from "./event-action";
+import { /* loadEvents, */ events, loadEventsByCategoria, loadEventsByCategoriaError, loadEventsByCategoriaSuccess, loadEventsBySport, loadEventsBySportError, loadEventsBySportSuccess,/*  loadEventsError, loadEventsSuccess */ } from "./event-action";
 import { EventsService } from '../../services/events/events-service';
 
 
@@ -14,12 +14,12 @@ export class EventEffects {
 
     loadEvents = createEffect(() =>
         this.actions.pipe(
-            ofType(loadEvents),
-            mergeMap(() =>
+            ofType(events.loadEvents),
+            switchMap(() =>
                 this.eventsService.getAllEvents().pipe(
-                    map(events => loadEventsSuccess({ events })),
+                    map(resp => events.loadEventsSuccess({ events: resp })),
                     catchError(error =>
-                        of(loadEventsError({ error }))
+                        of(events.loadEventsError({ error }))
                     )
                 )
             )

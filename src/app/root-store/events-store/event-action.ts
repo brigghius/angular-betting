@@ -1,7 +1,7 @@
-import { createAction, props } from "@ngrx/store";
+import { createAction, createActionGroup, emptyProps, props } from "@ngrx/store";
 import { EventModel } from "../../models/event-model";
 
-export const loadEvents  = createAction(
+/* export const loadEvents  = createAction(
     '[Event] loadEvents '
 );
 
@@ -13,7 +13,17 @@ export const loadEventsSuccess = createAction(
 export const loadEventsError = createAction(
   '[Event] loadEvents error ',
   props<{ error: any }>()
-);
+); */
+
+// Utilizzo di createActionGroup per raggruppare le azioni correlate agli eventi
+export const events = createActionGroup({
+    source: 'Event',
+    events: {
+        'loadEvents': emptyProps(),
+        'loadEventsSuccess': props<{ events: EventModel[] }>(),
+        'loadEventsError': props<{ error: any }>()
+    }
+});
 
 export const loadEventsBySport  = createAction(
     '[Event] loadEventsBySport ',

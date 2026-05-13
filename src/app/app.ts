@@ -11,7 +11,7 @@ import { CapitalizePipe } from './pipe/capitalize-pipe';
 import { CommonValueService } from './services/common-value-service/common-value-service';
 import { NgClass } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { loadEvents, loadEventsByCategoria, loadEventsBySport } from './root-store/events-store/event-action';
+import { /* loadEvents, */ events, loadEventsByCategoria, loadEventsBySport } from './root-store/events-store/event-action';
 
 @Component({
   selector: 'app-root',
@@ -45,7 +45,7 @@ export class App {
     
     if (sport === 'overview') { 
       this.router.navigateByUrl('overview');
-      this.store.dispatch(loadEvents());
+      this.store.dispatch(events.loadEvents());
     }
     else if(sport !== '' && categoria === '') {
       this.router.navigateByUrl('sport');

@@ -1,24 +1,24 @@
 import { createReducer, on } from "@ngrx/store";
 import { initialState } from "./event-state";
-import { loadEvents, loadEventsByCategoria, loadEventsByCategoriaError, loadEventsByCategoriaSuccess, loadEventsBySport, loadEventsBySportError, loadEventsBySportSuccess, loadEventsError, loadEventsSuccess } from "./event-action";
+import { /* loadEvents,  */events, loadEventsByCategoria, loadEventsByCategoriaError, loadEventsByCategoriaSuccess, loadEventsBySport, loadEventsBySportError, loadEventsBySportSuccess, /* loadEventsError, loadEventsSuccess  */} from "./event-action";
 
 export const eventsFeatureKey = 'events';
 
 export const eventReducer = createReducer(
     initialState,
-    on(loadEvents, (state) => ({
+    on(events.loadEvents, (state) => ({
     ...state,
     loading: true,
     error: null
   })),
 
-  on(loadEventsSuccess, (state, { events }) => ({
+  on(events.loadEventsSuccess, (state, { events }) => ({
     ...state,
     events,
     loading: false
   })),
 
-  on(loadEventsError, (state, { error }) => ({
+  on(events.loadEventsError, (state, { error }) => ({
     ...state,
     loading: false,
     error

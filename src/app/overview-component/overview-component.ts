@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { BehaviorSubject, Observable, switchMap } from 'rxjs';
 import { selectAllEvents, selectEventsError, selectLoading } from '../root-store/events-store/event-selectors';
-import { loadEvents } from '../root-store/events-store/event-action';
+//import { loadEvents } from '../root-store/events-store/event-action';
 import { EventModel } from '../models/event-model';
 import { CommonModule } from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
